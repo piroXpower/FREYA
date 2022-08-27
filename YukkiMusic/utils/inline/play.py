@@ -8,7 +8,7 @@
 # All rights reserved.
 
 import random
-
+from config import SUPPORT_CHANNEL, SUPPORT_GROUP, DONATION_URL
 from pyrogram.types import InlineKeyboardButton
 
 selections = [
@@ -36,9 +36,11 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
         ],
         [
             InlineKeyboardButton(
@@ -52,7 +54,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
+                text="Donate", url=f"{DONATION_URL}"
             )
         ],
     ]
@@ -64,9 +66,11 @@ def telegram_markup_timer(_, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
         ],
         [
             InlineKeyboardButton(
@@ -74,7 +78,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
+                text="Donate", url=f"{DONATION_URL}"
             ),
         ],
     ]
@@ -88,6 +92,14 @@ def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
                 text=_["PL_B_2"],
                 callback_data=f"add_playlist {videoid}",
             ),
@@ -98,7 +110,7 @@ def stream_markup(_, videoid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
+                text="Donate", url=f"{DONATION_URL}"
             )
         ],
     ]
@@ -109,12 +121,20 @@ def telegram_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
                 text=_["PL_B_3"],
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
-            ),
+                text="Donate", url=f"{DONATION_URL}"
+            )
         ],
     ]
     return buttons
@@ -127,6 +147,14 @@ def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
                 text=_["P_B_1"],
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
             ),
@@ -137,8 +165,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
-                callback_data=f"forceclose {videoid}|{user_id}",
+                text="Donate", url=f"{DONATION_URL}"
             )
         ],
     ]
@@ -147,6 +174,14 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
+        ],
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
@@ -159,8 +194,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
-                callback_data=f"forceclose {videoid}|{user_id}",
+                text="Donate", url=f"{DONATION_URL}"
             ),
         ],
     ]
@@ -174,12 +208,19 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
+                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
                 text=_["P_B_3"],
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"],
-                callback_data=f"forceclose {videoid}|{user_id}",
+                text="Donate", url=f"{DONATION_URL}"
             ),
         ],
     ]
