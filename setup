@@ -115,6 +115,9 @@ pprint "\nMONGO DB URI: "; color_reset; read mongo_db
 pprint "\nLOG GROUP ID: "; color_reset; read logger
 pprint "\nPYROGRAM STRING SESSION OF ASSISTANT ACCOUNT: "; color_reset; read string_session
 pprint "\nMUSIC BOT NAME: "; color_reset; read mbt
+pprint "\nDONATION URL: "; color_reset; read donation
+pprint "\nSUPPORT_CHAT: "; colour_reset; read chat
+pprint "\nSUPPORT_CHANNEL: "; colour_reset; read channel
 pprint "\nOwner Id:"; color_reset; read ownid
 
 pprint "\n\nProcessing your vars, Wait a while!" "cgreen"
@@ -130,6 +133,9 @@ MONGO_DB_URI = $mongo_db
 LOG_GROUP_ID = $logger
 MUSIC_BOT_NAME = $mbt
 STRING_SESSION = $string_session
+DONATION_URL = $donation_url
+SUPPORT_CHAT = $support_chat
+SUPPORT_CHANNEL = $support_channel
 OWNER_ID = $ownid""" > .env
 clear
 pprint "\n\n\nYour Vars have been saved Successfully!, Thanks for using Yukki Installer, now you can proceed by starting the bot with bash start!"
