@@ -8,6 +8,7 @@
 # All rights reserved.
 
 import random
+
 from config import SUPPORT_CHANNEL, SUPPORT_GROUP, DONATION_URL
 from pyrogram.types import InlineKeyboardButton
 
@@ -95,22 +96,53 @@ def telegram_markup_timer(_, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
                 text=_["PL_B_3"],
                 callback_data=f"PanelMarkup None|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            ),
+            )
         ],
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )        
     return buttons
 
 
@@ -121,14 +153,6 @@ def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
                 text=_["PL_B_2"],
                 callback_data=f"add_playlist {videoid}",
             ),
@@ -137,12 +161,49 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
         ],
-        [
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            )
-        ],
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )        
     return buttons
 
 
@@ -150,22 +211,53 @@ def telegram_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
                 text=_["PL_B_3"],
                 callback_data=f"PanelMarkup None|{chat_id}",
-            ),
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            )
+            ),           
         ],
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )        
     return buttons
 
 
@@ -173,15 +265,7 @@ def telegram_markup(_, chat_id):
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
+    buttons = [       
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
@@ -191,26 +275,55 @@ def track_markup(_, videoid, user_id, channel, fplay):
                 text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            )
-        ],
+        ],       
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )            
     return buttons
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
+    buttons = [        
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
@@ -220,13 +333,50 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
                 text=_["P_B_2"],
                 callback_data=f"YukkiPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            ),
-        ],
+        ],        
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
     return buttons
 
 
@@ -234,25 +384,56 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
 
 
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
+    buttons = [        
         [
             InlineKeyboardButton(
                 text=_["P_B_3"],
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
-            ),
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            ),
+            ),            
         ],
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )        
     return buttons
 
 
