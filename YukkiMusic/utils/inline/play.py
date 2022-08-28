@@ -8,7 +8,8 @@
 # All rights reserved.
 
 import random
-
+from typing import Union
+from YukkiMusic import app
 from config import SUPPORT_CHANNEL, SUPPORT_GROUP, DONATION_URL
 from pyrogram.types import InlineKeyboardButton
 
