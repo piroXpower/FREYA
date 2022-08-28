@@ -36,14 +36,6 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
                 text=_["PL_B_2"],
                 callback_data=f"add_playlist {videoid}",
             ),
@@ -52,12 +44,49 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
         ],
-        [
-            InlineKeyboardButton(
-                text="Donate", url=f"{DONATION_URL}"
-            )
-        ],
     ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="Donation", url=f"{DONATION_URL}"
+                ), 
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Donation", url=f"{DONATION_URL}"
+                    )
+                ]
+            )        
     return buttons
 
 
