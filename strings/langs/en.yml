@@ -346,6 +346,15 @@ sudo_5 : "⭐️<u> **Owners:**</u>\n"
 sudo_6 : "\n⭐️<u> **Sudo Users:**</u>\n"
 sudo_7 : "No Sudo Users"
 
+#botlist
+bot_1 : "{0} is already a botlist."
+bot_2 : "Added **{0}** to botlist." 
+bot_3 : "Not a part of Bot's list."
+bot_4 : "Removed from Bot's list"
+bot_5 : "⭐️<u> **Owners:**</u>\n"
+bot_6 : "\n⭐️<u> **Your BotList:**</u>\n"
+bot_7 : "No  BotIds"
+
 #Block
 block_1 : "{0} is already blocked from the bot."
 block_2 : "Added **{0}** to Block List of bot. User won't be able to use bot now under any condition.\n\nCheck blocked users: /blockedusers"
