@@ -10,7 +10,6 @@
 import random
 from typing import Union
 from YukkiMusic import app
-from config import SUPPORT_CHANNEL, SUPPORT_GROUP, DONATION_URL
 from pyrogram.types import InlineKeyboardButton
 
 selections = [
@@ -46,51 +45,21 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )        
     return buttons
-
 
 def telegram_markup_timer(_, chat_id, played, dur):
     bar = random.choice(selections)
@@ -101,49 +70,20 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 callback_data=f"PanelMarkup None|{chat_id}",
             )
         ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )        
     return buttons
 
 
@@ -162,49 +102,20 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )        
     return buttons
 
 
@@ -216,49 +127,21 @@ def telegram_markup(_, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),           
         ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )        
+        
     return buttons
 
 
@@ -276,50 +159,21 @@ def track_markup(_, videoid, user_id, channel, fplay):
                 text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
-        ],       
-    ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )            
+        ],    
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],  
+    ]   
     return buttons
 
 
@@ -335,49 +189,20 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
                 callback_data=f"YukkiPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],        
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
     return buttons
 
 
@@ -392,49 +217,20 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),            
         ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"], url="https://t.me/TheBotUpdates"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_3"], url="https://t.me/TheDeadlyBots"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Donation", url="PayPal.me/piroxpower"
+            ), 
+        ],
     ]
-    if SUPPORT_CHANNEL and SUPPORT_GROUP:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Donation", url=f"{DONATION_URL}"
-                ), 
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )
-        if SUPPORT_GROUP:
-            buttons.append(
-                [
-                    InlineKeyboardButton(
-                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="Donation", url=f"{DONATION_URL}"
-                    )
-                ]
-            )        
     return buttons
 
 
