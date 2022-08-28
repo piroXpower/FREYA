@@ -33,7 +33,7 @@ class YukkiBot(Client):
         self.id = get_me.id
         try:
             await self.send_message(
-                config.LOG_GROUP_ID, "Bot Started"
+                config.LOG_GROUP_ID, f"**Successfully Started @{self.username} Bot\n Your Bot Id Is {self.id}**"
             )
         except:
             LOGGER(__name__).error(
