@@ -19,7 +19,7 @@ from config import BANNED_USERS
 from config.config import OWNER_ID
 from strings import get_command, get_string
 from YukkiMusic import Telegram, YouTube, app
-from YukkiMusic.misc import SUDOERS
+from YukkiMusic.misc import SUDOERS, BOTS
 from YukkiMusic.plugins.play.playlist import del_plist_msg
 from YukkiMusic.plugins.sudo.sudoers import sudoers_list
 from YukkiMusic.utils.database import (add_served_chat,
@@ -290,6 +290,11 @@ async def welcome(client, message: Message):
                         config.MUSIC_BOT_NAME, member.mention
                     )
                 )
+            if member.id in BOTS:
+                await message.reply_text(
+                    "**Deadly Music Bots Abuse Protection**\nPlease maintain the dignity and usage of Deadly Bots, Add only one deadly bot in your chat\nOther Deadly Bots present inside your chat will leave now.... Check status of bots on: @TheUpdateChannel"                    
+                )
+                await app.leave_chat(message.chat.id)
             return
         except:
             return
