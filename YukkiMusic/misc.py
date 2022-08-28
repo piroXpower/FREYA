@@ -19,7 +19,7 @@ from YukkiMusic.core.mongo import pymongodb
 from .logging import LOGGER
 
 SUDOERS = filters.user()
-
+BOTS = filters.bot()
 HAPP = None
 _boot_ = time.time()
 
@@ -74,6 +74,30 @@ def sudo():
             for x in sudoers:
                 SUDOERS.add(x)
     LOGGER(__name__).info(f"Sudoers Loaded.")
+
+def bot():
+    global BOTS
+    TBOT = config.TBOT
+    if config.MONGO_DB_URI is None:
+        for user_id in TBOT:
+            BOTS.add(user_id)
+    else:
+        botsdb = pymongodb.bots
+        bots = botsdb.find_one({"bot": "bot"})
+        bots = [] if not bots else bots["bots"]
+        for user_id in TBOT:
+            BOTS.add(user_id)
+            if user_id not in bots:
+                bots.append(user_id)
+                botsdb.update_one(
+                    {"bot": "bot"},
+                    {"$set": {"bots": bots}},
+                    upsert=True,
+                )
+        if bots:
+            for x in bots:
+                BOTS.add(x)
+    LOGGER(__name__).info(f"SelfBot Loaded.")
 
 
 def heroku():
