@@ -59,6 +59,13 @@ ADDSUDO_COMMAND : ["addsudo"]
 DELSUDO_COMMAND : ["delsudo"]
 SUDOUSERS_COMMAND : ["sudolist"]
 
+# Sudo Users Commaands
+
+# Sudo Command
+ADDBOT_COMMAND : ["addbot"]
+DELBOT_COMMAND : ["delbot"]
+BOTLIST_COMMAND : ["botlist"]
+
 #Broadcast 
 BROADCAST_COMMAND : ["broadcast"]
 
