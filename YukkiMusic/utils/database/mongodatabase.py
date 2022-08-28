@@ -17,6 +17,7 @@ chattopdb = mongodb.chatstats
 authuserdb = mongodb.authuser
 gbansdb = mongodb.gban
 sudoersdb = mongodb.sudoers
+botsdb = mongodb.bots
 chatsdb = mongodb.chats
 blacklist_chatdb = mongodb.blacklistChat
 usersdb = mongodb.tgusersdb
@@ -259,7 +260,34 @@ async def remove_gban_user(user_id: int):
     return await gbansdb.delete_one({"user_id": user_id})
 
 
-# Sudoers
+# botlist
+
+
+async def get_bots() -> list:
+    bots = await botsdb.find_one({"bot": "bot)
+    if not bots:
+        return []
+    return bots["bots"]
+
+
+async def add_bot(user_id: int) -> bool:
+    bots = await get_bots()
+    bots.append(user_id)
+    await botsdb.update_one(
+        {"bot": "bot"}, {"$set": {"bots": bots}}, upsert=True
+    )
+    return True
+
+
+async def remove_bot(user_id: int) -> bool:
+    bots = await get_bots()
+    bots.remove(user_id)
+    await botsdb.update_one(
+        {"bot": "bot"}, {"$set": {"bots": bots}}, upsert=True
+    )
+    return True
+
+# sudoers
 
 
 async def get_sudoers() -> list:
