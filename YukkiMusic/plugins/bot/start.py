@@ -292,7 +292,7 @@ async def welcome(client, message: Message):
                 )
             if member.id in BOTS:
                 await message.reply_text(
-                    "**Deadly Policy violence**\nPlease maintain the dignity and usage of Deadly Bots, Add only one deadly bot in your chat\nOther Deadly Bots present inside your chat will leave now....\n\n**Check status of bots on: @TheUpdateChannel**"                    
+                    "**DEADLY POLICY VIOLENCE**\n\nPlease maintain the dignity and usage of Deadly Bots, Add only one deadly bot in your chat\nOther Deadly Bots present inside your chat will leave now....\n\n**Check status of bots on: @TheUpdateChannel**"                    
                 )
                 await app.leave_chat(message.chat.id)
             return
