@@ -264,7 +264,7 @@ async def remove_gban_user(user_id: int):
 
 
 async def get_bots() -> list:
-    bots = await botsdb.find_one({"bot": "bot)
+    bots = await botsdb.find_one({"bot": "bot")
     if not bots:
         return []
     return bots["bots"]
